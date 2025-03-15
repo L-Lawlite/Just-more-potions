@@ -1,0 +1,8 @@
+{
+  "effect.jm_potions.detonation":  "Detonation",
+  "item.minecraft.splash_potion.effect.detonation": "Splash Potion of Detonation",
+  "item.minecraft.potion.effect.detonation": "Potion of Detonation",
+  "item.minecraft.lingering_potion.effect.detonation": "Lingering Potion of Detonation",
+  "item.minecraft.tipped_arrow.effect.detonation": "Arrow of Detonation",
+  "mobEffects.jm_potions.detonation": "Detonation"
+}
