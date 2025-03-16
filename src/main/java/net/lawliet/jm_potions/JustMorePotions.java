@@ -32,7 +32,6 @@ public class JustMorePotions
 
         modEventBus.addListener(Registration::addCreative);
         modEventBus.addListener(Registration::addCapabilities);
-
 //        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
