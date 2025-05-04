@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -23,6 +24,8 @@ public class Registration {
     public static final DeferredHolder<MobEffect,MobEffect> DETONATION;
     public static final DeferredHolder<Potion,Potion> DETONATION_POTION;
     public static final DeferredHolder<Potion,Potion> STRONG_DETONATION_POTION;
+    public static final DeferredHolder<Potion,Potion> DECAY_POTION;
+    public static final DeferredHolder<Potion,Potion> STRONG_DECAY_POTION;
 
 
     //Registries
@@ -42,6 +45,16 @@ public class Registration {
                 new MobEffectInstance[]{
                         new MobEffectInstance(DETONATION,1800, 1)
                 }));
+        DECAY_POTION = POTIONS.register("decay", () -> new Potion("wither",
+                new MobEffectInstance[] {
+                        new MobEffectInstance(MobEffects.WITHER, 3600)
+                }
+                ));
+        STRONG_DECAY_POTION = POTIONS.register("strong_decay", () -> new Potion("wither",
+                new MobEffectInstance[] {
+                        new MobEffectInstance(MobEffects.WITHER, 1800, 1)
+                }
+                ));
     }
 
     public static void init(IEventBus modEventBus) {
