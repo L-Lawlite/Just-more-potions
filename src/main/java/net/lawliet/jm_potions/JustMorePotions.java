@@ -1,5 +1,6 @@
 package net.lawliet.jm_potions;
 
+import net.neoforged.fml.config.ModConfig;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -26,13 +27,13 @@ public class JustMorePotions
 
     public JustMorePotions(IEventBus modEventBus, ModContainer modContainer)
     {
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         Registration.init(modEventBus);
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(Registration::addCreative);
         modEventBus.addListener(Registration::addCapabilities);
-//        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
