@@ -7,10 +7,8 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.alchemy.Potion;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.*;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 import static java.util.Map.entry;
 
 public class JustMorePotionsLanguageProvider extends LanguageProvider {
@@ -20,7 +18,7 @@ public class JustMorePotionsLanguageProvider extends LanguageProvider {
     }
 
     protected void addPotion(DeferredHolder<Potion,Potion> potionHolder, String name) {
-        String potionKey = potionHolder.getKey().location().getPath();
+        String potionKey = potionHolder.getDelegate().value().name();
         Map<String,String> potionItemTypes = Map.ofEntries(
                 entry("splash_potion","Splash Potion of "),
                 entry("potion","Potion of "),
@@ -41,9 +39,9 @@ public class JustMorePotionsLanguageProvider extends LanguageProvider {
         addPotion(potionHolder,name);
     }
 
-    protected Iterable<String> getAllPotionsKeys(DeferredRegister<Potion> potionRegistry) {
-        return potionRegistry.getEntries().stream().map(x -> x.get().name()).collect(Collectors.toSet());
-    }
+//    protected Iterable<String> getAllPotionsKeys(DeferredRegister<Potion> potionRegistry) {
+//        return potionRegistry.getEntries().stream().map(x -> x.get().name()).collect(Collectors.toSet());
+//    }
 
 
 
